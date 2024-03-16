@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### 인텔리제이 파일 (자동생성됨)###
+/.idea/
+### maven 파일 ###
+/.mvn/
+/mvnw
+/mvnw.cmd
+
+
