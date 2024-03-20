@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+
+.header_container .common_logo .logo {
+    position: relative;
+    top: 0;
+    display: block;
+    width: 150px;
+    height: 66px;
+    background: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzrwWs%2FbtsFS2Jw7yE%2FM60JNZ20PSetT0iC8gbAok%2Fimg.png) no-repeat;
+    background-size: 100%;
+}
+
+.header_container.fixed .common_logo .logo {
+    width: 90px;
+    height: 43px;
+}
+
