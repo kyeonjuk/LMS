@@ -5,21 +5,11 @@
 
 <br>
 
-## Notion 링크 
-  : https://www.notion.so/LMS-6c8dd5ac369148ff9d729b33dbff282f?pvs=4
-
-<br>
 
 ## 1. 🌿 프로젝트 기능 및 설계
-- 회원관리
-  - 회원가입
-  - 로그인
-  - 회원정보 수정
-  - 가입 탈퇴
- <br>
+  : https://www.notion.so/LMS-6c8dd5ac369148ff9d729b33dbff282f?pvs=4
 
- 
--  
+ <br>
 
  
 
