@@ -1,7 +1,42 @@
-spring :
+spring:
   thymeleaf:
     suffix: .jsp
     prefix: classpath:/templates/
 
+
+# Gmail 설정
+  mail:
+    host: smtp.gmail.com
+    post: 587
+    username: mailtestback@gmail.com
+    password: lhsk pjyt nxuv cqhe
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/lms
+    username: root
+    password: root
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    # sql문 보기
+    show-sql: true
+
+
+spring.jwt.secret: asdkfljsaldfjalsdkjhfksauehmcnasdkwptgiruslxzcwrsldwperoilcsdfmsjdnfsdfhskjfhwkejfskdcbqowijsdkdaja
+
+
+# 로그 출력 코드
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: DEBUG
 
 
