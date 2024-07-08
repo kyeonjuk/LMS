@@ -5,6 +5,7 @@ import com.samssak.lms.jwt.CustomAuthenticationSuccessHandler;
 import com.samssak.lms.jwt.JWTFilter;
 import com.samssak.lms.jwt.JWTUtil;
 import com.samssak.lms.jwt.LoginFilter;
+import com.samssak.lms.jwt.CustomLogoutFilter;
 import com.samssak.lms.repository.RefreshRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -67,7 +69,6 @@ public class SecurityConfiguration {
         .successHandler(successHandler)           // 로그인 성공시 실행될 핸들러
         .failureHandler(failureHandler);          // 로그인 실패시 실행될 핸들러
 
-
     // http basic 인증방식 : disable
     http.httpBasic((auth) -> auth.disable());
 
@@ -95,6 +96,10 @@ public class SecurityConfiguration {
     http
         .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
+
+    // [~] 로그아웃 커스텀 필터 등록
+    http
+        .addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshRepository), LogoutFilter.class);
 
     return http.build();
   }

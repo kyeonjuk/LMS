@@ -4,6 +4,7 @@ import com.samssak.lms.model.MemberInput;
 import com.samssak.lms.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -109,6 +110,23 @@ public class MemberController {
   @GetMapping("/admin")
   public String admin() {
     return "admin Controller";
+  }
+
+
+  // 로그아웃 시 - 세션 삭제
+  @GetMapping("/member/delSession")
+  public String delSession(HttpServletRequest request, HttpServletResponse response) {
+
+    HttpSession session = request.getSession(false); // false: 세션이 없으면 새로 생성하지 않음
+
+    if (session != null) {
+      // 세션 속성 제거
+      session.setAttribute("name", null);
+      session.setAttribute("email", null);
+      session.setAttribute("role", null);
+    }
+
+    return "redirect:/";
   }
 
 }

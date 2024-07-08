@@ -268,14 +268,13 @@
 				<div class="inner_container">
 					<div class="ranking_head" data-ga-action="main_랭킹존타이틀">
 						<h3 class="title">
-							<strong class="tit">샘싹 Picks<br>이번주 랭킹 차트
+							<strong class="tit">샘싹 Picks<br>이번주 업데이트 차트
 							</strong>
 							<p class="desc">지금 가장 핫한 샘싹 콘텐츠를 만나보세요</p>
 						</h3>
 						<ul class="tab_ranking">
 							<li class="on"><a href="javascript:;" class="btn_tab"
-								data-ga-label="조회수"><span class="emoji">&#128200;</span>실시간
-									조회수 상승 강의는?</a></li>
+								data-ga-label="조회수"><span class="emoji">&#128200;</span>실시간 업데이트 강의는?</a></li>
 						</ul>
 
 
@@ -287,11 +286,11 @@
 							<ul>
 
 								<li data-ga-action="main_랭킹존_조회수1"><a
-									href="https://www.etoos.com/lecture/promotion/2023/11/2024ets/"
+									href="/images/ranking/pick1.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="https://img.etoos.com/enp/front/2024/03/11/etoospass/bn/ranking.png"
+												src="images/ranking/pick1.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -305,11 +304,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수2"><a
-									href="https://www.etoos.com/lecture/promotion/2024/02/3p/#none"
+									href="/images/ranking/pick2.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="http://img.etoos.com/enp/front/2024/02/29/3p/400x520.png"
+												src="images/ranking/pick2.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -325,11 +324,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수3"><a
-									href="https://www.etoos.com/lecture/promotion/2024/03/ebs/"
+									href="/images/ranking/pick3.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="https://img.etoos.com/enp/front/2024/03/18/ebs/bn/400x520.png"
+												src="images/ranking/pick3.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -344,11 +343,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수4"><a
-									href="https://www.etoos.com/teacher/event/2023/12/jsj_26/"
+									href="/images/ranking/pick4.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="http://img.etoos.com/enp/front/2023/12/19/jsj/400x520.png"
+												src="images/ranking/pick4.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -363,11 +362,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수5"><a
-									href="https://www.etoos.com/teacher/event/2024/02/ljy_22/"
+									href="/images/ranking/pick5.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="http://img.etoos.com/enp/front/2024/02/22/ljy/400x520.png"
+												src="images/ranking/pick5.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -382,11 +381,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수6"><a
-									href="https://www.etoos.com/teacher/event/2023/12/kmj_27/"
+									href="/images/ranking/pick6.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="https://img.etoos.com/enp/front/main/2023/web/bn_1116/ranking1_8.png"
+												src="images/ranking/pick6.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -401,11 +400,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수7"><a
-									href="https://www.etoos.com/teacher/event/2024/03/jhy_14/"
+									href="/images/ranking/pick7.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="https://img.etoos.com/enp/front/2024/03/14/jhy/bn/400x520.png"
+												src="images/ranking/pick7.png"
 												alt="">
 										</div>
 										<div class="description">
@@ -421,11 +420,11 @@
 								</a></li>
 
 								<li data-ga-action="main_랭킹존_조회수8"><a
-									href="https://www.etoos.com/teacher/event/2024/02/lgc_01/"
+									href="/images/ranking/pick8.png"
 									class="link">
 										<div class="thumbnail">
 											<img
-												src="https://img.etoos.com/enp/front/2024/02/pmo/ranking_1_0205.png"
+												src="images/ranking/pick8.png"
 												alt="">
 										</div>
 										<div class="description">
