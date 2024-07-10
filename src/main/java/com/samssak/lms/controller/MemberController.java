@@ -106,12 +106,6 @@ public class MemberController {
     return "alert.html";
   }
 
-  // admin 페이지
-  @GetMapping("/admin")
-  public String admin() {
-    return "admin Controller";
-  }
-
 
   // 로그아웃 시 - 세션 삭제
   @GetMapping("/member/delSession")
@@ -128,5 +122,21 @@ public class MemberController {
 
     return "redirect:/";
   }
+
+
+  // 비밀번호 찾기
+  @GetMapping("/member/findPassword")
+  public String findPassword() {
+    return "/member/findPassword";
+  }
+
+  // 아이디 찾기
+  @GetMapping("/member/findId")
+  public String findId() {
+    return "/member/findId";
+  }
+
+
+
 
 }

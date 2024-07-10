@@ -86,7 +86,7 @@
 						data-ga-label="H_주요메뉴_전체강좌" class="btn_tab"
 						data-target="gnb_lecture">전체강좌</a></li>
 
-					<li><a href="https://www.etoos.com/teacher/default.asp"
+					<li><a href="/course/teacher"
 						data-ga-label="H_주요메뉴_선생님" class="btn_tab"
 						data-target="gnb_teacher">강사</a></li>
 
@@ -174,8 +174,8 @@
         <li><a href="/member/logout" id="inte_signUp" data-ga-label="로그아웃"><span>로그아웃</span></a></li>
     </div>
 
-					<li><a href="javascript:void(0);" id="inte_myRoom1"
-						onclick="fnIntegrationMyStudyRoom('1')" class="myroom_on" data-ga-label="마이룸"><span>마이룸</span></a>
+					<li><a href="/myRoom" id="inte_myRoom1"
+						class="myroom_on" data-ga-label="마이룸"><span>마이룸</span></a>
 
 						<div class="myroom_list myroom_layer">
 							<div class="myroom_inner">
@@ -206,14 +206,14 @@
 
 
 								<div class="myroom_btn flex_between">
-									<a href="https://www.etoos.com/mystudyroom/Order/Cartlist.asp"
+									<a href="myRoom/cart"
 										class="cart" data-ga-label="장바구니"><span>장바구니</span></a>
 									<a
 										href="https://www.etoos.com/mystudyroom/lecture/lecturewatchSubScr.asp?ModuleType=subscr"
 										class="qna" data-ga-label="수강중인강좌"><span>수강중인강좌</span></a>
 								</div>
 								<div class="myroom_btn flex_between">
-									<a href="https://www.etoos.com/mystudyroom/" class="lect"
+									<a href="/myRoom" class="lect"
 										data-ga-label="마이룸바로가기"><span>마이룸
 											바로가기</span></a>
 								</div>
@@ -238,8 +238,14 @@
 							</div>
 						</div></li>
 
+           <div th:if="${session['role']} == admin">
+                            <li><a href="/admin"><span>관리자페이지</span></a></li>
+                        </div>
+
 					<li><a href="/"
 						data-ga-label="고객센터">고객센터</a></li>
+
+
 				</ul>
 
 			</div>

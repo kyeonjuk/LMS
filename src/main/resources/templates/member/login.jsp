@@ -33,9 +33,9 @@
                <div style="text-align: center; color:dimgrey;" >
               		<a href="/member/register" class="">회원가입</a>
               		<span>&nbsp;|&nbsp;</span>
-              		<a href="${pageContext.request.contextPath}/member/findIdForm" class="">아이디 찾기</a>
+              		<a href="/member/findId" class="">아이디 찾기</a>
               		<span>&nbsp;|&nbsp;</span>
-              		<a href="${pageContext.request.contextPath}/member/findPassForm" class="">비밀번호 찾기</a>
+              		<a href="/member/findPassword" class="">비밀번호 찾기</a>
                </div>
 
               <input type="submit" value="Login">

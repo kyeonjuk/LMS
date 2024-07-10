@@ -74,7 +74,10 @@ public class SecurityConfiguration {
 
     // 경로 인가 작업
     http.authorizeHttpRequests((auth) -> auth
-            .requestMatchers("/**","/member/**").permitAll()  // 해당 url로의 접근 무조건 허용
+            .requestMatchers("/**",
+                "/member/**"
+            ).permitAll()  // 로그인이 필요없는 페이지
+
             .requestMatchers("/admin/**").hasRole("admin")     // 해당 url로의 접근은 ADMIN권한을 가진 인자만 접근 허용
             .requestMatchers("/reissue").permitAll()  // 해당 url로의 접근 무조건 허용
             .anyRequest().authenticated()     // 그 외 : 로그인을 해야 접근 가능
