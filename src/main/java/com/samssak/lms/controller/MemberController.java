@@ -108,7 +108,7 @@ public class MemberController {
 
 
   // 로그아웃 시 - 세션 삭제
-  @GetMapping("/member/delSession")
+  @GetMapping("/member/del-session")
   public String delSession(HttpServletRequest request, HttpServletResponse response) {
 
     HttpSession session = request.getSession(false); // false: 세션이 없으면 새로 생성하지 않음

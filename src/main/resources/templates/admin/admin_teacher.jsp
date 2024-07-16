@@ -46,6 +46,7 @@
         <div id="Sub840_conbody">
             <div id="Sub840_conbW">
 
+
                 <!-- 좌측 네비바 start -->
                 <div id="Sub840_Left">
 
@@ -249,14 +250,12 @@
 
                             <!--// cont -->
                             <div class="cont_tit_type1 cont_tit_type1_1">
-                                <strong class="tit">회원 정보 관리</strong>
+                                <strong class="tit">강사 정보 관리</strong>
 
                             </div>
 
 
                             <!-- cont//-->
-
-
 
                             <!-- 수강중 강좌 TAB -->
 
@@ -267,10 +266,16 @@
                             <div class="list_t_sort">
 
                                 <span class="wr_sort_btn">
-                                    <a href="/admin?sort=createDate,asc&sortName=old" th:classappend="${sortName == 'old'} ? 'btn_align on' : 'btn_align'">Old</a>
-                                    <a href="/admin?sort=createDate,desc&sortName=new" th:classappend="${sortName == 'new'} ? 'btn_align on' : 'btn_align'">New</a>
-                                    <a href="/admin?sort=name,asc&sortName=nameAsc" th:classappend="${sortName == 'nameAsc'} ? 'btn_align on' : 'btn_align'">이름 오름차순</a>
-                                    <a href="/admin?sort=name,desc&sortName=nameDesc" th:classappend="${sortName == 'nameDesc'} ? 'btn_align on' : 'btn_align'">이름 내림차순</a>
+                                    <a href="/admin/teacher?sort=createDate,asc&sortName=old"
+                                        th:classappend="${sortName == 'old'} ? 'btn_align on' : 'btn_align'">Old</a>
+                                    <a href="/admin/teacher?sort=createDate,desc&sortName=new"
+                                        th:classappend="${sortName == 'new'} ? 'btn_align on' : 'btn_align'">New</a>
+                                    <a href="/admin/teacher?sort=name,asc&sortName=nameAsc"
+                                        th:classappend="${sortName == 'nameAsc'} ? 'btn_align on' : 'btn_align'">이름
+                                        오름차순</a>
+                                    <a href="/admin/teacher?sort=name,desc&sortName=nameDesc"
+                                        th:classappend="${sortName == 'nameDesc'} ? 'btn_align on' : 'btn_align'">이름
+                                        내림차순</a>
                                 </span>
                             </div>
 
@@ -280,8 +285,9 @@
 
                                     <div class="wr_listcont">
 
-                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit"><span th:text="${member.name}"></span></a>
-                                        <!--2024-07-29-->
+                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit"><span
+                                                th:text="${member.name}"></span></a>
+
                                         <span>이메일 : </span><span th:text="${member.email}"></span>
                                         &nbsp;|&nbsp;
                                         <span>핸드폰 : </span><span th:text="${member.phone}"></span>
@@ -312,7 +318,7 @@
                             <div class="lect_paging mt_20">
                                 <span class="page">
                                     <span th:each="pageNum : ${pageList}">
-                                        <a th:href="@{/admin(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
+                                        <a th:href="@{/admin/teacher(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
                                             th:text="${pageNum}"
                                             th:class="${pageNum == memberList.getNumber + 1 ? 'active' : ''}"
                                             style="padding: 10px;">

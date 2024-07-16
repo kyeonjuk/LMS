@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -28,6 +29,9 @@ public class AdminController {
   public String admin(final Pageable pageable, Model model,
       @RequestParam(defaultValue="null") String sortName) {
 
+    // 학생
+    String role = "student";
+
     // 정렬 파라미터 값
     String sort = "";
     if (sortName == null) {
@@ -43,7 +47,7 @@ public class AdminController {
     }
 
     // 데이터 가져오기
-    Page<Member> memberList = adminService.pagingMember(pageable);
+    Page<Member> memberList = adminService.pagingMember(role, pageable);
 
     // 1 페이지 ~ 마지막 페이지
     List<Integer> pageList = new ArrayList<>();
@@ -57,6 +61,58 @@ public class AdminController {
     model.addAttribute("pageList", pageList);
 
     return "/admin/admin_member";
+  }
+
+  // [회원 + 강사] 회원, 강사 정보 상세 페이지
+  @GetMapping("/admin/member/{email}")
+  public String memberDetail(@PathVariable String email, Model model) {
+
+    Member member = adminService.findMember(email);
+
+    model.addAttribute("member", member);
+
+
+    return "/admin/member_detail";
+  }
+
+
+  // [강사] 강사 정보 관리 목록 페이지
+  @GetMapping("/admin/teacher")
+  public String teacher(final Pageable pageable, Model model,
+      @RequestParam(defaultValue="null") String sortName) {
+
+    // 강사
+    String role = "teacher";
+
+    // 정렬 파라미터 값
+    String sort = "";
+    if (sortName == null) {
+
+    } else if (sortName.equals("old")) {
+      sort = "createDate,asc";
+    } else if (sortName.equals("new")) {
+      sort = "createDate,desc";
+    } else if (sortName.equals("nameAsc")) {
+      sort = "name,asc";
+    } else if (sortName.equals("nameDesc")) {
+      sort = "name,desc";
+    }
+
+    // 데이터 가져오기
+    Page<Member> memberList = adminService.pagingMember(role, pageable);
+
+    // 1 페이지 ~ 마지막 페이지
+    List<Integer> pageList = new ArrayList<>();
+    for (int i = 1; i <= memberList.getTotalPages(); i++) {
+      pageList.add(i);
+    }
+
+    model.addAttribute("memberList", memberList);
+    model.addAttribute("sortName", sortName);
+    model.addAttribute("sort", sort);
+    model.addAttribute("pageList", pageList);
+
+    return "/admin/admin_teacher";
   }
 
 }
