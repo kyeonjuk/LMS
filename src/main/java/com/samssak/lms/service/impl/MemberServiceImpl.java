@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
           .birth(parameter.getBirth())
           .password(bCryptPasswordEncoder.encode(password))
           .role("student")
-          .create_date(LocalDateTime.now())
+          .createDate(LocalDateTime.now())
           .active("0")
           .active_key(uuid)
           .profile_image(parameter.getProfile_image())
@@ -134,7 +134,6 @@ public class MemberServiceImpl implements MemberService {
 
     return false;
   }
-
 
 
 

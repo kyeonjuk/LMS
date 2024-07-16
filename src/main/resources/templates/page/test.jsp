@@ -1,7 +1,7 @@
 <html lagn="ko"
       xmlns:th="http://www.thymeleaf.org"
        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-       layout:decorate="~{layouts/default_layout}">
+       layout:decorate="~{layouts/myRoom_layout}">
 
 <head>
     <!-- index.html 고유 CSS 추가 -->

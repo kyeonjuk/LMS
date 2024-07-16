@@ -11,6 +11,8 @@
 
 
 <body>
+    <!-- header fragment 사용 -->
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
     <!-- content fragment 사용 -->
     <th:block layout:fragment="content"></th:block>
     <!-- footer fragment 사용 -->

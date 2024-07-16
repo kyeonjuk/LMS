@@ -13,4 +13,5 @@ public interface MemberService {
   // active_key 체크
   public boolean checkActive_key(String email, String key);
 
+
 }

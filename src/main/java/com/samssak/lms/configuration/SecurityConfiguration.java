@@ -5,6 +5,7 @@ import com.samssak.lms.jwt.CustomAuthenticationSuccessHandler;
 import com.samssak.lms.jwt.JWTFilter;
 import com.samssak.lms.jwt.JWTUtil;
 import com.samssak.lms.jwt.LoginFilter;
+import com.samssak.lms.jwt.CustomLogoutFilter;
 import com.samssak.lms.repository.RefreshRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -67,13 +69,15 @@ public class SecurityConfiguration {
         .successHandler(successHandler)           // 로그인 성공시 실행될 핸들러
         .failureHandler(failureHandler);          // 로그인 실패시 실행될 핸들러
 
-
     // http basic 인증방식 : disable
     http.httpBasic((auth) -> auth.disable());
 
     // 경로 인가 작업
     http.authorizeHttpRequests((auth) -> auth
-            .requestMatchers("/**","/member/**").permitAll()  // 해당 url로의 접근 무조건 허용
+            .requestMatchers("/**",
+                "/member/**"
+            ).permitAll()  // 로그인이 필요없는 페이지
+
             .requestMatchers("/admin/**").hasRole("admin")     // 해당 url로의 접근은 ADMIN권한을 가진 인자만 접근 허용
             .requestMatchers("/reissue").permitAll()  // 해당 url로의 접근 무조건 허용
             .anyRequest().authenticated()     // 그 외 : 로그인을 해야 접근 가능
@@ -95,6 +99,10 @@ public class SecurityConfiguration {
     http
         .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
+
+    // [~] 로그아웃 커스텀 필터 등록
+    http
+        .addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshRepository), LogoutFilter.class);
 
     return http.build();
   }
