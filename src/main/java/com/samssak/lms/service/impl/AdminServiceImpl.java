@@ -15,16 +15,20 @@ public class AdminServiceImpl implements AdminService {
   private final MemberRepository memberRepository;
 
   @Override
-  public Page<Member> pagingMember(Pageable pageable) {
+  public Page<Member> pagingMember(String role, Pageable pageable) {
 
-    Page<Member> memberList = memberRepository.findAll(pageable);
+    Page<Member> memberList = memberRepository.findByRole(role, pageable);
 
     return memberList;
   }
 
   @Override
-  public boolean pagingCourse() {
+  public Member findMember(String email) {
 
-    return false;
+    Member member = memberRepository.findByEmail(email);
+
+    return member;
   }
+
+
 }

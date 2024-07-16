@@ -110,6 +110,8 @@
 
 
 
+
+
                 <div id="Sub840_con">
 
 
@@ -231,16 +233,6 @@
                     </div>
 
 
-
-
-
-                    <script type="text/javascript" src="/common/js_2013/etoos_default_new.js"></script>
-                    <script type="text/javascript" src="/common/js_2013/jquery.json-2.3.js"></script>
-                    <script type="text/javascript" src="/common/js_2013/jquery.form.js"></script>
-                    <script type="text/javascript" src="/common/js_2013/common_etoos.js"></script>
-
-
-
                     <!-- myroom 시작 -->
                     <div id="wrapmyroom">
                         <div class="wr_cont_f my_lectroom">
@@ -249,42 +241,29 @@
 
                             <!--// cont -->
                             <div class="cont_tit_type1 cont_tit_type1_1">
-                                <strong class="tit">회원 정보 관리</strong>
+                                <strong class="tit">회원/강사 정보 상세 페이지</strong>
 
                             </div>
 
 
                             <!-- cont//-->
 
-
-
                             <!-- 수강중 강좌 TAB -->
-
-
-
-                            <!-- 페이징 처리 -->
-
-                            <div class="list_t_sort">
-
-                                <span class="wr_sort_btn">
-                                    <a href="/admin?sort=createDate,asc&sortName=old" th:classappend="${sortName == 'old'} ? 'btn_align on' : 'btn_align'">Old</a>
-                                    <a href="/admin?sort=createDate,desc&sortName=new" th:classappend="${sortName == 'new'} ? 'btn_align on' : 'btn_align'">New</a>
-                                    <a href="/admin?sort=name,asc&sortName=nameAsc" th:classappend="${sortName == 'nameAsc'} ? 'btn_align on' : 'btn_align'">이름 오름차순</a>
-                                    <a href="/admin?sort=name,desc&sortName=nameDesc" th:classappend="${sortName == 'nameDesc'} ? 'btn_align on' : 'btn_align'">이름 내림차순</a>
-                                </span>
-                            </div>
 
                             <ul class="myroom_list5 list5_type2">
 
-                                <li th:each="member : ${memberList}" id="lectureStudyView_nor">
+                                <li th:each="member : ${member}" id="lectureStudyView_nor">
 
                                     <div class="wr_listcont">
 
-                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit"><span th:text="${member.name}"></span></a>
-                                        <!--2024-07-29-->
+                                        <span>이름 : </span><span th:text="${member.name}"></span>
+                                        <br>
                                         <span>이메일 : </span><span th:text="${member.email}"></span>
-                                        &nbsp;|&nbsp;
+                                        <br>
                                         <span>핸드폰 : </span><span th:text="${member.phone}"></span>
+                                        <br>
+                                        <span>학생/강사 : </span><span th:text="${member.role}"></span>
+                                        <br>
                                         <div class="cont_info">
                                             가입날짜 : <span class="mrf_num12 mrf_pb1"><span
                                                     th:text="${member.createDate}"></span></span>
@@ -295,34 +274,6 @@
                                 </li>
 
                             </ul>
-
-                            <!-- 페이징 넘버 -->
-                            <style>
-                                .active {
-                                    font-weight: bold;
-                                    color: green;
-                                }
-
-                                .page {
-                                    font-size: 30px;
-                                    font-weight: 400;
-                                }
-                            </style>
-
-                            <div class="lect_paging mt_20">
-                                <span class="page">
-                                    <span th:each="pageNum : ${pageList}">
-                                        <a th:href="@{/admin(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
-                                            th:text="${pageNum}"
-                                            th:class="${pageNum == memberList.getNumber + 1 ? 'active' : ''}"
-                                            style="padding: 10px;">
-                                        </a>
-                                    </span>
-                                </span>
-                            </div>
-                            <!-- // 페이징 넘버 -->
-
-
 
                             <!-- cont//-->
 
