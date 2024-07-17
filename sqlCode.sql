@@ -55,7 +55,12 @@ INSERT INTO member (email, name, password, phone, birth, create_date, role, acti
 ('teacher19@example.com', '박준혁', 'password19', '010-1919-1919', '1998-07-19', '2024-07-01 04:00:00', 'teacher', '1', 'key19', '알고리즘', 'teacher19.jpg'),
 ('teacher20@example.com', '최유리', 'password20', '010-2020-2020', '1999-08-20', '2024-08-01 05:00:00', 'teacher', '1', 'key20', '자격증', 'teacher20.jpg');
 
-
-
+-- category 테이블 예시 데이터 
+INSERT INTO category (name, description, active, create_date) VALUES
+('백엔드', '백엔드 개발을 위한 강의입니다. 서버, 데이터베이스, API 설계 및 구현을 다룹니다.', TRUE, '2023-01-01 10:00:00'),
+('프론트엔드', '프론트엔드 개발을 위한 강의입니다. HTML, CSS, JavaScript와 최신 프레임워크를 다룹니다.', TRUE, '2023-02-01 11:00:00'),
+('모바일앱개발', '모바일 앱 개발을 위한 강의입니다. Android와 iOS 플랫폼에서의 앱 개발을 다룹니다.', TRUE, '2023-03-01 12:00:00'),
+('알고리즘', '알고리즘 문제 해결을 위한 강의입니다. 다양한 알고리즘과 자료구조를 다룹니다.', TRUE, '2023-04-01 13:00:00'),
+('자격증', 'IT 자격증 취득을 위한 강의입니다. 다양한 IT 자격증 준비를 위한 내용을 다룹니다.', TRUE, '2023-05-01 14:00:00');
 
 
