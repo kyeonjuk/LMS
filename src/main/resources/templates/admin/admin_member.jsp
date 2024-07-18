@@ -86,6 +86,10 @@
                             </ul>
                             <strong class="menu_tit">강좌 관리</strong>
                             <ul class="lnb_menu_list">
+                                <li><a href="/admin/category-list"
+                                        onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_장바구니\');}catch(_e){}');"><span>카테고리
+                                            관리</span></a>
+                                </li>
                                 <li><a href="/admin/"
                                         onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_장바구니\');}catch(_e){}');"><span>강의
                                             패키지 등록</span></a>
@@ -112,127 +116,15 @@
 
                 <div id="Sub840_con">
 
-
-
-
-
-                    <style type="text/css">
-                        .popup_hsh {}
-
-                        .popup_hsh .tch_name1 {
-                            position: absolute;
-                            top: 43px;
-                            left: 233px;
-                            display: inline-block;
-                            width: 175px;
-                            font: bold 32px/40px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_hsh .tch_name2 {
-                            position: absolute;
-                            top: 139px;
-                            left: 173px;
-                            display: inline-block;
-                            width: 60px;
-                            font: bold 17px/25px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_hsh .pop_btm {
-                            position: absolute;
-                            top: 827px;
-                            left: 0;
-                            right: 0;
-                            height: 25px;
-                            padding: 6px 0 0 22px;
-                            color: #444;
-                            font-size: 13px;
-                            letter-spacing: -0.08em
-                        }
-
-                        .popup_hsh .pop_btm .inp_check {
-                            width: 13px;
-                            height: 13px;
-                            margin-top: -2px;
-                        }
-
-                        .popup_hsh .pop_btm .btn_close {
-                            position: absolute;
-                            top: 0;
-                            right: 2px
-                        }
-                    </style>
                     <div id="divFLT_HSH_20161017" name="divFLT_HSH_20161017"
                         style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
 
                     </div>
 
-
-
-                    <style type="text/css">
-                        .popup_nhj .tch_name1 {
-                            position: absolute;
-                            top: 43px;
-                            left: 231px;
-                            display: inline-block;
-                            width: 175px;
-                            font: bold 32px/40px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_nhj .tch_name2 {
-                            position: absolute;
-                            top: 139px;
-                            left: 173px;
-                            display: inline-block;
-                            width: 60px;
-                            font: bold 17px/25px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_nhj .pop_btm {
-                            position: absolute;
-                            top: 827px;
-                            left: 0;
-                            right: 0;
-                            height: 25px;
-                            padding: 6px 0 0 22px;
-                            color: #444;
-                            font-size: 13px;
-                            letter-spacing: -0.08em
-                        }
-
-                        .popup_nhj .pop_btm .inp_check {
-                            width: 13px;
-                            height: 13px;
-                            margin-top: -2px;
-                        }
-
-                        .popup_nhj .pop_btm .btn_close {
-
-
-                            position: absolute;
-                            top: 0;
-                            right: 2px
-                        }
-                    </style>
                     <div id="divFLT_NHJ_20161017" name="divFLT_NHJ_20161017"
                         style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
 
                     </div>
-
-
-
-
 
                     <script type="text/javascript" src="/common/js_2013/etoos_default_new.js"></script>
                     <script type="text/javascript" src="/common/js_2013/jquery.json-2.3.js"></script>
@@ -281,7 +173,6 @@
                                     <div class="wr_listcont">
 
                                         <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit"><span th:text="${member.name}"></span></a>
-                                        <!--2024-07-29-->
                                         <span>이메일 : </span><span th:text="${member.email}"></span>
                                         &nbsp;|&nbsp;
                                         <span>핸드폰 : </span><span th:text="${member.phone}"></span>

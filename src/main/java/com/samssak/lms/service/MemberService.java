@@ -1,5 +1,6 @@
 package com.samssak.lms.service;
 
+import com.samssak.lms.entity.Member;
 import com.samssak.lms.model.MemberInput;
 
 public interface MemberService {
@@ -13,5 +14,9 @@ public interface MemberService {
   // active_key 체크
   public boolean checkActive_key(String email, String key);
 
+  // 회원/강사 찾기
+  public MemberInput findByEmail(String email);
 
+  // 회원/강사 삭제
+  public boolean deleteByEmail(String email);
 }

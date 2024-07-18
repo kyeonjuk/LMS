@@ -86,6 +86,10 @@
                             </ul>
                             <strong class="menu_tit">강좌 관리</strong>
                             <ul class="lnb_menu_list">
+                                <li><a href="/admin/category-list"
+                                        onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_장바구니\');}catch(_e){}');"><span>카테고리
+                                            관리</span></a>
+                                </li>
                                 <li><a href="/admin/"
                                         onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_장바구니\');}catch(_e){}');"><span>강의
                                             패키지 등록</span></a>
@@ -115,118 +119,11 @@
                 <div id="Sub840_con">
 
 
-
-
-
-                    <style type="text/css">
-                        .popup_hsh {}
-
-                        .popup_hsh .tch_name1 {
-                            position: absolute;
-                            top: 43px;
-                            left: 233px;
-                            display: inline-block;
-                            width: 175px;
-                            font: bold 32px/40px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_hsh .tch_name2 {
-                            position: absolute;
-                            top: 139px;
-                            left: 173px;
-                            display: inline-block;
-                            width: 60px;
-                            font: bold 17px/25px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_hsh .pop_btm {
-                            position: absolute;
-                            top: 827px;
-                            left: 0;
-                            right: 0;
-                            height: 25px;
-                            padding: 6px 0 0 22px;
-                            color: #444;
-                            font-size: 13px;
-                            letter-spacing: -0.08em
-                        }
-
-                        .popup_hsh .pop_btm .inp_check {
-                            width: 13px;
-                            height: 13px;
-                            margin-top: -2px;
-                        }
-
-                        .popup_hsh .pop_btm .btn_close {
-                            position: absolute;
-                            top: 0;
-                            right: 2px
-                        }
-                    </style>
                     <div id="divFLT_HSH_20161017" name="divFLT_HSH_20161017"
                         style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
 
                     </div>
 
-
-
-                    <style type="text/css">
-                        .popup_nhj .tch_name1 {
-                            position: absolute;
-                            top: 43px;
-                            left: 231px;
-                            display: inline-block;
-                            width: 175px;
-                            font: bold 32px/40px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_nhj .tch_name2 {
-                            position: absolute;
-                            top: 139px;
-                            left: 173px;
-                            display: inline-block;
-                            width: 60px;
-                            font: bold 17px/25px 'Malgun Gothic', '맑은고딕', sans-serif;
-                            color: #222;
-                            letter-spacing: -1px;
-                            text-align: right
-                        }
-
-                        .popup_nhj .pop_btm {
-                            position: absolute;
-                            top: 827px;
-                            left: 0;
-                            right: 0;
-                            height: 25px;
-                            padding: 6px 0 0 22px;
-                            color: #444;
-                            font-size: 13px;
-                            letter-spacing: -0.08em
-                        }
-
-                        .popup_nhj .pop_btm .inp_check {
-                            width: 13px;
-                            height: 13px;
-                            margin-top: -2px;
-                        }
-
-                        .popup_nhj .pop_btm .btn_close {
-
-
-                            position: absolute;
-                            top: 0;
-                            right: 2px
-                        }
-                    </style>
                     <div id="divFLT_NHJ_20161017" name="divFLT_NHJ_20161017"
                         style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
 
@@ -256,6 +153,11 @@
 
                                     <div class="wr_listcont">
 
+                                        <img th:src="@{'/files/' + ${member.profile_image}}"
+                                            alt="Profile Image"
+                                            onerror="this.onerror=null;this.src='/files/default.png';"
+                                            style="width: 150px;" />
+                                        <br>
                                         <span>이름 : </span><span th:text="${member.name}"></span>
                                         <br>
                                         <span>이메일 : </span><span th:text="${member.email}"></span>
@@ -269,6 +171,32 @@
                                                     th:text="${member.createDate}"></span></span>
                                         </div>
 
+                                        <br>
+                                        <!-- 수정 / 삭제 버튼 -->
+                                        <span>
+                                            <a th:href="@{'/admin/member-update/' + ${member.email}}" style="display: inline-block;
+                                            width: 100px;
+                                            background-color: #ffffff;
+                                            color: #000000;
+                                            text-align: center;
+                                            border: 1px solid #c9b7b7;
+                                            height: 21px;
+                                            font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
+                                            ">수정</a>
+                                        </span>
+
+                                        <span>
+                                            <a th:href="@{'/admin/member-delete/' + ${member.email}}" style="display: inline-block;
+                                            width: 100px;
+                                            background-color: #ef3d3d;
+                                            color: #ffffff;
+                                            text-align: center;
+                                            border: 1px solid #ef3d3d;
+                                            height: 21px;
+                                            font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
+                                            ">삭제</a>
+                                        </span>
+                                        <!-- // 수정 / 삭제 버튼 -->
                                     </div>
 
                                 </li>

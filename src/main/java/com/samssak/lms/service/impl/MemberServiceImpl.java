@@ -135,6 +135,37 @@ public class MemberServiceImpl implements MemberService {
     return false;
   }
 
+  @Override
+  public MemberInput findByEmail(String email) {
+
+    Member member = memberRepository.findByEmail(email);
+
+    MemberInput memberInput = MemberInput.builder()
+        .email(member.getEmail())
+        .name(member.getName())
+        .createDate(member.getCreateDate())
+        .phone(member.getPhone())
+        .password(member.getPassword())
+        .role(member.getRole())
+        .birth(member.getBirth())
+        .active(member.getActive())
+        .profile_image(member.getProfile_image())
+        .build();
+
+    return memberInput;
+  }
+
+  @Override
+  public boolean deleteByEmail(String email) {
+
+    try {
+      memberRepository.deleteByEmail(email);
+    } catch (Exception e) {
+      return false;
+    }
+
+    return true;
+  }
 
 
 }

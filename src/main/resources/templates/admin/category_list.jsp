@@ -46,7 +46,6 @@
         <div id="Sub840_conbody">
             <div id="Sub840_conbW">
 
-
                 <!-- 좌측 네비바 start -->
                 <div id="Sub840_Left">
 
@@ -118,8 +117,6 @@
                 <div id="Sub840_con">
 
 
-
-
                     <div id="divFLT_HSH_20161017" name="divFLT_HSH_20161017"
                         style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
 
@@ -129,6 +126,9 @@
                         style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
 
                     </div>
+
+
+
 
 
                     <script type="text/javascript" src="/common/js_2013/etoos_default_new.js"></script>
@@ -146,12 +146,14 @@
 
                             <!--// cont -->
                             <div class="cont_tit_type1 cont_tit_type1_1">
-                                <strong class="tit">강사 정보 관리</strong>
+                                <strong class="tit">카테고리 관리</strong>
 
                             </div>
 
 
                             <!-- cont//-->
+
+
 
                             <!-- 수강중 강좌 TAB -->
 
@@ -161,7 +163,7 @@
 
                             <div class="list_t_sort">
                                 <span>
-                                    <a href="/admin/teacher-add" style="display: inline-block;
+                                    <a href="/admin/category-add" style="display: inline-block;
                                     width: 100px;
                                     background-color: #0c8b95;
                                     color: #ffffff;
@@ -169,19 +171,18 @@
                                     border: 1px solid #047f89;
                                     height: 21px;
                                     font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
-                                    ">강사 등록</a>
+                                    ">카테고리 등록</a>
                                 </span>
 
-
                                 <span class="wr_sort_btn">
-                                    <a href="/admin/teacher?sort=createDate,asc&sortName=old"
+                                    <a href="/admin/category-list?sort=createDate,asc&sortName=old"
                                         th:classappend="${sortName == 'old'} ? 'btn_align on' : 'btn_align'">Old</a>
-                                    <a href="/admin/teacher?sort=createDate,desc&sortName=new"
+                                    <a href="/admin/category-list?sort=createDate,desc&sortName=new"
                                         th:classappend="${sortName == 'new'} ? 'btn_align on' : 'btn_align'">New</a>
-                                    <a href="/admin/teacher?sort=name,asc&sortName=nameAsc"
+                                    <a href="/admin/category-list?sort=name,asc&sortName=nameAsc"
                                         th:classappend="${sortName == 'nameAsc'} ? 'btn_align on' : 'btn_align'">이름
                                         오름차순</a>
-                                    <a href="/admin/teacher?sort=name,desc&sortName=nameDesc"
+                                    <a href="/admin/category-list?sort=name,desc&sortName=nameDesc"
                                         th:classappend="${sortName == 'nameDesc'} ? 'btn_align on' : 'btn_align'">이름
                                         내림차순</a>
                                 </span>
@@ -189,24 +190,49 @@
 
                             <ul class="myroom_list5 list5_type2">
 
-                                <li th:each="member : ${memberList}" id="lectureStudyView_nor">
+                                <li th:each="category : ${categoryList}" id="lectureStudyView_nor">
 
                                     <div class="wr_listcont">
-                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit">
-                                          <img th:src="@{'/files/' + ${member.profile_image}}"
-                                            alt="Profile Image"
-                                            onerror="this.onerror=null;this.src='/files/default.png';"
-                                            style="width: 150px;" /></a>
-                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit"><span
-                                                th:text="${member.name}"></span></a>
 
-                                        <span>이메일 : </span><span th:text="${member.email}"></span>
-                                        &nbsp;|&nbsp;
-                                        <span>핸드폰 : </span><span th:text="${member.phone}"></span>
+                                        <a th:href="@{'/admin/category-list/' + ${category.id}}" class="cont_tit">
+                                        <span>카테고리 ID : </span><span th:text="${category.id}"></span></a>
+                                        <br>
+                                        <span>카테고리 이름 : </span><span th:text="${category.name}"></span>
+                                        <br>
+                                        <span>카테고리 설명 : </span><span th:text="${category.description}"></span>
+                                        <br>
+                                        <span>사용여부 : </span><span th:text="${category.active}"></span>
+
                                         <div class="cont_info">
-                                            가입날짜 : <span class="mrf_num12 mrf_pb1"><span
-                                                    th:text="${member.createDate}"></span></span>
+                                            등록날짜 : <span class="mrf_num12 mrf_pb1"><span
+                                                    th:text="${category.createDate}"></span></span>
                                         </div>
+                                        <br>
+                                        <!-- 수정 / 삭제 버튼 -->
+                                        <span>
+                                            <a th:href="@{'/admin/category-update/' + ${category.id}}" style="display: inline-block;
+                                            width: 100px;
+                                            background-color: #ffffff;
+                                            color: #000000;
+                                            text-align: center;
+                                            border: 1px solid #c9b7b7;
+                                            height: 21px;
+                                            font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
+                                            ">수정</a>
+                                        </span>
+
+                                        <span>
+                                            <a th:href="@{'/admin/category-delete/' + ${category.id}}" style="display: inline-block;
+                                            width: 100px;
+                                            background-color: #ef3d3d;
+                                            color: #ffffff;
+                                            text-align: center;
+                                            border: 1px solid #ef3d3d;
+                                            height: 21px;
+                                            font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
+                                            ">삭제</a>
+                                        </span>
+                                        <!-- // 수정 / 삭제 버튼 -->
 
                                     </div>
 
@@ -230,9 +256,9 @@
                             <div class="lect_paging mt_20">
                                 <span class="page">
                                     <span th:each="pageNum : ${pageList}">
-                                        <a th:href="@{/admin/teacher(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
+                                        <a th:href="@{/admin/category-list(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
                                             th:text="${pageNum}"
-                                            th:class="${pageNum == memberList.getNumber + 1 ? 'active' : ''}"
+                                            th:class="${pageNum == categoryList.getNumber + 1 ? 'active' : ''}"
                                             style="padding: 10px;">
                                         </a>
                                     </span>

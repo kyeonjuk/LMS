@@ -46,15 +46,6 @@
   						style="position: fixed; z-index: 111; top: 300px;">
 
 
-  						<!--EPMO-3920 삭제 2022-08-12-->
-  						<!-- // EPMO-3441 2022-06-07 -->
-  						<!--
-  						<div class="f_banner">
-  							<a href="/teacher/event/2022/05/lsh_30/" class="gifimage" data-ga-action="main_우측날개플로팅" data-ga-label="임수현르네상스프로젝트" onMouseDown="eval('try{ _trk_clickTrace( \'EVT\', \'고 메인_임수현르네상스프로젝트_우측사이드플로팅(220607)\' ); }catch(_e){ }');" target="_blank">
-  								<img src="/enp/front/2022/06/pmo/0607_113x165.png" class="lazy-img" alt="임수현르네상스프로젝트" width="113" height="165">
-  							</a>
-  						</div>-->
-  						<!-- // EPMO-3441 2022-06-07 -->
 
   					</div>
   				</div>
