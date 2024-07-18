@@ -162,7 +162,7 @@
                                             <th>내용</th>
                                             <td colspan="4">
                                                 <input name="description" type="text" class="csinp_txt"
-                                                    style="width:655px; height: 300px;" maxlength="200" th:value="${category.name}">
+                                                    style="width:655px; height: 300px;" maxlength="200" th:value="${category.description}">
                                             </td>
                                         </tr>
 

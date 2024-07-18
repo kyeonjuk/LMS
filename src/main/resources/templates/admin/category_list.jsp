@@ -194,7 +194,7 @@
 
                                     <div class="wr_listcont">
 
-                                        <a th:href="@{'/admin/category-list/' + ${category.id}}" class="cont_tit">
+                                        <a href="javascript:void(0);" class="cont_tit">
                                         <span>카테고리 ID : </span><span th:text="${category.id}"></span></a>
                                         <br>
                                         <span>카테고리 이름 : </span><span th:text="${category.name}"></span>

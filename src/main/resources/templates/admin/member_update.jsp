@@ -209,7 +209,7 @@
 										<tr>
 											<th>현재 이미지</th>
 											<td colspan="4">
-												<img th:src="@{'/files/' + ${member.email} + ${member.profile_image}}" alt="현재 이미지" style="height: 100px;">
+												<img th:src="@{'/files/' + ${member.profile_image}}" alt="현재 이미지" style="height: 100px;">
 											</td>
 
 										</tr>
