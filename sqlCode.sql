@@ -53,7 +53,7 @@ INSERT INTO member (email, name, password, phone, birth, create_date, role, acti
 ('teacher17@example.com', '이준영', 'password17', '010-1717-1717', '1996-05-17', '2024-05-01 02:00:00', 'teacher', '1', 'key17', '백엔드', 'teacher17@example.comteacher17.jpg'),
 ('teacher18@example.com', '김소희', 'password18', '010-1818-1818', '1997-06-18', '2024-06-01 03:00:00', 'teacher', '1', 'key18', '모바일앱개발', 'teacher18@example.comteacher18.jpg'),
 ('teacher19@example.com', '박준혁', 'password19', '010-1919-1919', '1998-07-19', '2024-07-01 04:00:00', 'teacher', '1', 'key19', '알고리즘', 'teacher19@example.comteacher19.jpg'),
-('teacher20@example.com', '최유리', 'password20', '010-2020-2020', '1999-08-20', '2024-08-01 05:00:00', 'teacher', '1', 'key20', '자격증', 'teacher20@example.comteacher20.jpg');
+('teacher20@example.com', '최유리', 'password20', '010-2020-2020', '1999-08-20', '2024-07-15 05:00:00', 'teacher', '1', 'key20', '자격증', 'teacher20@example.comteacher20.jpg');
 
 
 -- category 테이블 예시 데이터 
