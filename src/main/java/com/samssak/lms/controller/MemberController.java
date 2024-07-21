@@ -5,6 +5,8 @@ import com.samssak.lms.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -135,7 +137,6 @@ public class MemberController {
   public String findId() {
     return "/member/findId";
   }
-
 
 
 

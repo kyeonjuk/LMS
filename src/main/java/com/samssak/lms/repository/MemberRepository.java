@@ -21,4 +21,8 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     @Transactional
     @Query("DELETE FROM Member m WHERE m.email = :email")
     void deleteByEmail(String email);
+
+    @Query("SELECT m FROM Member m WHERE m.email = :email and m.role = :role")
+    Member findByEmailWhereRole(String email, String role);
+
 }

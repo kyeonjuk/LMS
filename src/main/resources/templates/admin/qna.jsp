@@ -90,18 +90,18 @@
                                 onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_장바구니\');}catch(_e){}');"><span>카테고리
                                     관리</span></a>
                         </li>
-                        <li><a href="/admin/"
+                        <li><a href="/admin/course-list"
                                 onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_장바구니\');}catch(_e){}');"><span>강의
-                                    패키지 등록</span></a>
+                                    패키지 관리</span></a>
                         </li>
-                        <li><a href="/admin/"
+                        <li><a href="/admin/lecture-add"
                                 onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_주문결제혜택_주문/배송조회\');}catch(_e){}');"><span>개별
                                     강의 등록</span></a>
                         </li>
                     </ul>
                     <strong class="menu_tit">1대1 문의 관리</strong>
                     <ul class="lnb_menu_list">
-                        <li><a href="/admin/"
+                        <li><a href="/admin/qna-anwer"
                                 onmousedown="eval('try{ _trk_clickTrace(\'EVT\',\'마이룸_프로필_나의정보_개인정보수정\');}catch(_e){}');"><span>1대1
                                     문의 답변</span></a></li>
 

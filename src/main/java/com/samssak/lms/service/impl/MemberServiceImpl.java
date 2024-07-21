@@ -167,5 +167,25 @@ public class MemberServiceImpl implements MemberService {
     return true;
   }
 
+  @Override
+  public MemberInput findByEmailWhereRole(String email, String role) {
+
+    Member member = memberRepository.findByEmailWhereRole(email, role);
+
+    MemberInput memberInput = MemberInput.builder()
+        .email(member.getEmail())
+        .name(member.getName())
+        .createDate(member.getCreateDate())
+        .phone(member.getPhone())
+        .password(member.getPassword())
+        .role(member.getRole())
+        .birth(member.getBirth())
+        .active(member.getActive())
+        .profile_image(member.getProfile_image())
+        .build();
+
+    return memberInput;
+  }
+
 
 }

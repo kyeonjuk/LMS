@@ -1,11 +1,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
-<html lagn="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/default_layout}">
 
 <head>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<link rel="shortcut icon" type="image/x-icon" href="https://img.etoos.com/enp/front/main/icons/favicon.ico">
 	<link rel="icon" type="image/x-icon" href="https://img.etoos.com/enp/front/main/icons/favicon.ico">
@@ -22,9 +23,9 @@
 	<script type="text/javascript" src="https://www.etoos.com/common/js/prototype.js"></script>
 
 
+	<script type="text/javascript" src="/cache/home/main2011/js_rolling.js"></script>
 	<script language="javascript" src="https://www.etoos.com/common/js/jquery/jquery-1.8.3.min.js"
 		type="text/javascript"></script>
-	<script type="text/javascript">var $j = jQuery.noConflict(); </script>
 	<script language="javascript">
 
 	</script>
@@ -111,7 +112,6 @@
 					</div>
 				</div>
 				<!-- // 좌측 네비바 end -->
-
 				<style>
 					.cont_tit_type1 {
 						position: relative;
@@ -126,19 +126,39 @@
 					}
 				</style>
 
-				<!-- 강사 등록 -->
+				<!-- 카테고리 등록 -->
 				<div id="Sub840_con">
 
 					<div class="wrapcustomer">
 
 						<div class="cont_tit_type1 cont_tit_type1_1">
-							<strong class="tit">회원/강사 수정</strong>
+							<strong class="tit">강의 패키지 등록</strong>
 
 						</div>
 
 						<!--//cont -->
 
-						<form th:action="@{'/admin/member-update-pro/' + ${member.email}}" method="post" enctype="multipart/form-data">
+						<script>
+
+							function fetchTeacherName() {
+								var email = document.getElementById('teacherEmail').value;
+								jQuery.ajax({
+									url: '/admin/getTeacherName',
+									type: 'GET',
+									data: { email: email }, // 파라미터를 객체로 전달
+									success: function (response) {
+										document.getElementById('teacherName').innerText = response.name;
+										document.getElementById('submitName').value = response.name;
+									},
+									error: function () {
+										alert('강사 정보를 찾을 수 없습니다.');
+									}
+								});
+							}
+						</script>
+
+
+						<form action="/admin/course-add-pro" method="post">
 
 							<div class="wr_tbl_board">
 								<p class="list_t_desc">모든 항목 필수 입력</p>
@@ -152,98 +172,99 @@
 
 									<tbody>
 										<tr>
-											<th>이름</th>
+											<th>패키지 제목</th>
 											<td colspan="4">
-												<input name="name" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.name}">
-											</td>
-										</tr>
-
-										<tr>
-											<th>이메일</th>
-											<td colspan="4">
-												<input name="email" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.email}">
+												<input type="hidden" name="id" value="1">
+												<input type="hidden" name="rating" value="0">
+												<input name="title" type="text" class="csinp_txt" style="width: 500px;"
+													maxlength="200">
 											</td>
 										</tr>
 										<tr>
-											<th>비밀번호</th>
+											<th>강사 이메일</th>
 											<td colspan="4">
-												<input name="password" type="password" class="csinp_txt"
-													style="width:655px;" maxlength="200" th:value="${member.password}">
+												<input name="email" type="text" class="csinp_txt" style="width:500px"
+													maxlength="200" id="teacherEmail">
+												<span>
+													<a href="#" class="b1" onclick="fetchTeacherName()" style="display: inline-block;
+                                                        margin-left: 10px;
+                                                        background-color: #0c8b95;
+                                                        color: #ffffff;
+                                                        text-align: center;
+                                                        border: 1px solid #047f89;
+                                                        font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
+                                                        height: 36px;
+                                                        line-height: 36px;
+                                                        padding: 0 10px;
+                                                        ">강사 조회</a>
+												</span>
 											</td>
 										</tr>
 										<tr>
-											<th>핸드폰 번호</th>
+											<th>강사 이름</th>
 											<td colspan="4">
-												<input name="phone" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.phone}">
+												<span id="teacherName">강사 정보를 조회해주세요.</span>
+												<input type="hidden" name="name" id="submitName">
 											</td>
 										</tr>
-
 										<tr>
-											<th>생년월일</th>
+											<th>강의 가격</th>
 											<td colspan="4">
-												<input name="birth" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.birth}">
+												<input name="price" type="number" class="csinp_txt"
+													style="width: 250px;">
 											</td>
 										</tr>
-
 										<tr>
-											<th>가입 날짜</th>
+											<th>강의 설명</th>
 											<td colspan="4">
-												<input name="createDate" type="text" class="csinp_txt"
-													style="width:655px" maxlength="200" th:value="${member.createDate}">
+												<input name="description" type="text" class="csinp_txt"
+													style="width:655px; height: 300px;" maxlength="200">
 											</td>
-										</tr>
-
-										<tr>
-											<th>권한</th>
-											<td colspan="4">
-												<input name="role" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.role}">
-											</td>
-										</tr>
-
-
-										<tr>
-											<th>현재 이미지</th>
-											<td colspan="4">
-												<img th:src="@{'/files/' + ${member.profile_image}}" alt="현재 이미지" style="height: 100px;">
-											</td>
-
-										</tr>
-										<tr>
-											<th>새 이미지 업로드</th>
-											<td colspan="4">
-												<input type="file" name="newFile" style="height: 25px;" />
-											</td>
-
 										</tr>
 
 									</tbody>
 
+									<!-- 카테고리 선택 -->
+									<tbody>
+										<tr>
+											<th>카테고리 선택</th>
+											<td colspan="4">
+												<div class="csinp_select1" style="width:165px">
+													<select name="categoryId">
+														<option value="" disabled selected>카테고리</option>
+														<th:block th:each="category : ${categoryList}">
+															<option th:value="${category.id}"
+																th:text="${category.name}"></option>
+														</th:block>
+													</select>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+									<!-- // 카테고리 선택 -->
+
 									<!-- 사용 여부 -->
 									<tbody>
 										<tr>
-											<th>활성화 여부</th>
+											<th>사용 여부</th>
 											<td colspan="4">
 												<div class="csinp_select1" style="width:165px">
-													<select name="active" th:field="${member.active}">
-														<option value="1">활성화</option>
-														<option value="0">비활성화</option>
+													<select name="active">
+														<option value="true">사용</option>
+														<option value="false">미사용</option>
 													</select>
 												</div>
 
 											</td>
 										</tr>
 									</tbody>
+									<!-- // 사용 여부 -->
 								</table>
 							</div>
 
 
 							<div class="list_b_btn2 mt_30">
-								<a href="/admin/category-add" class="btn_gr50" style="width:170px">취소</a>
+								<a href="/admin/course-add" class="btn_gr50" style="width:170px">취소</a>
 								<button type="submit" class="btn_bg50" style="width:170px" id="check1_11">등록</button>
 							</div>
 							<!-- cont //-->
