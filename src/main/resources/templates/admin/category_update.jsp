@@ -25,7 +25,7 @@
     <script type="text/javascript" src="/cache/home/main2011/js_rolling.js"></script>
     <script language="javascript" src="https://www.etoos.com/common/js/jquery/jquery-1.8.3.min.js"
         type="text/javascript"></script>
-    <script type="text/javascript">var $j = jQuery.noConflict(); // jQuery noConflict </script>
+    <script type="text/javascript">var $j = jQuery.noConflict(); </script>
     <script language="javascript">
 
     </script>
@@ -112,148 +112,92 @@
                     </div>
                 </div>
                 <!-- // 좌측 네비바 end -->
+                <style>
+                    .cont_tit_type1 {
+                        position: relative;
+                        margin-top: 10px;
+                    }
 
+                    .tit {
+                        padding-left: 3px;
+                        font: bold 25px / 30px 'Malgun Gothic', '맑은고딕', sans-serif;
+                        color: #333;
+                        letter-spacing: -0.05em;
+                    }
+                </style>
 
-
+                <!-- 카테고리 등록 -->
                 <div id="Sub840_con">
 
+                    <div class="wrapcustomer">
 
-
-
-                    <div id="divFLT_HSH_20161017" name="divFLT_HSH_20161017"
-                        style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
-
-                    </div>
-
-                    <div id="divFLT_NHJ_20161017" name="divFLT_NHJ_20161017"
-                        style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
-
-                    </div>
-
-
-                    <script type="text/javascript" src="/common/js_2013/etoos_default_new.js"></script>
-                    <script type="text/javascript" src="/common/js_2013/jquery.json-2.3.js"></script>
-                    <script type="text/javascript" src="/common/js_2013/jquery.form.js"></script>
-                    <script type="text/javascript" src="/common/js_2013/common_etoos.js"></script>
-
-
-
-                    <!-- myroom 시작 -->
-                    <div id="wrapmyroom">
-                        <div class="wr_cont_f my_lectroom">
-
-
-
-                            <!--// cont -->
-                            <div class="cont_tit_type1 cont_tit_type1_1">
-                                <strong class="tit">강사 정보 관리</strong>
-
-                            </div>
-
-
-                            <!-- cont//-->
-
-                            <!-- 수강중 강좌 TAB -->
-
-
-
-                            <!-- 페이징 처리 -->
-
-                            <div class="list_t_sort">
-                                <span>
-                                    <a href="/admin/teacher-add" style="display: inline-block;
-                                    width: 100px;
-                                    background-color: #0c8b95;
-                                    color: #ffffff;
-                                    text-align: center;
-                                    border: 1px solid #047f89;
-                                    height: 21px;
-                                    font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
-                                    ">강사 등록</a>
-                                </span>
-
-
-                                <span class="wr_sort_btn">
-                                    <a href="/admin/teacher?sort=createDate,asc&sortName=old"
-                                        th:classappend="${sortName == 'old'} ? 'btn_align on' : 'btn_align'">Old</a>
-                                    <a href="/admin/teacher?sort=createDate,desc&sortName=new"
-                                        th:classappend="${sortName == 'new'} ? 'btn_align on' : 'btn_align'">New</a>
-                                    <a href="/admin/teacher?sort=name,asc&sortName=nameAsc"
-                                        th:classappend="${sortName == 'nameAsc'} ? 'btn_align on' : 'btn_align'">이름
-                                        오름차순</a>
-                                    <a href="/admin/teacher?sort=name,desc&sortName=nameDesc"
-                                        th:classappend="${sortName == 'nameDesc'} ? 'btn_align on' : 'btn_align'">이름
-                                        내림차순</a>
-                                </span>
-                            </div>
-
-                            <ul class="myroom_list5 list5_type2">
-
-                                <li th:each="member : ${memberList}" id="lectureStudyView_nor">
-
-                                    <div class="wr_listcont">
-                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit">
-                                          <img th:src="@{'/files/' + ${member.profile_image}}"
-                                            alt="Profile Image"
-                                            onerror="this.onerror=null;this.src='/files/default.png';"
-                                            style="width: 150px;" /></a>
-                                        <a th:href="@{'/admin/member/' + ${member.email}}" class="cont_tit"><span
-                                                th:text="${member.name}"></span></a>
-
-                                        <span>이메일 : </span><span th:text="${member.email}"></span>
-                                        &nbsp;|&nbsp;
-                                        <span>핸드폰 : </span><span th:text="${member.phone}"></span>
-                                        <div class="cont_info">
-                                            가입날짜 : <span class="mrf_num12 mrf_pb1"><span
-                                                    th:text="${member.createDate}"></span></span>
-                                        </div>
-
-                                    </div>
-
-                                </li>
-
-                            </ul>
-
-                            <!-- 페이징 넘버 -->
-                            <style>
-                                .active {
-                                    font-weight: bold;
-                                    color: green;
-                                }
-
-                                .page {
-                                    font-size: 30px;
-                                    font-weight: 400;
-                                }
-                            </style>
-
-                            <div class="lect_paging mt_20">
-                                <span class="page">
-                                    <span th:each="pageNum : ${pageList}">
-                                        <a th:href="@{/admin/teacher(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
-                                            th:text="${pageNum}"
-                                            th:class="${pageNum == memberList.getNumber + 1 ? 'active' : ''}"
-                                            style="padding: 10px;">
-                                        </a>
-                                    </span>
-                                </span>
-                            </div>
-                            <!-- // 페이징 넘버 -->
-
-
-
-                            <!-- cont//-->
-
+                        <div class="cont_tit_type1 cont_tit_type1_1">
+                            <strong class="tit">카테고리 수정</strong>
 
                         </div>
 
+                        <!--//cont -->
 
+                        <form th:action="@{'/admin/category-update-pro/' + ${category.id}}" method="post">
+
+                            <div class="wr_tbl_board">
+                                <p class="list_t_desc">모든 항목 필수 입력</p>
+                                <table width="100%" class="tbl cstbl_input_st1 mt_10">
+                                    <colgroup>
+                                        <col style="width:148px">
+                                        <col style="width:200px">
+                                        <col style="width:200px">
+                                    </colgroup>
+
+
+                                    <tbody>
+                                        <tr>
+                                            <th>제목</th>
+                                            <td colspan="4">
+                                                <input name="name" type="text" class="csinp_txt" style="width:655px"
+                                                    maxlength="200" th:value="${category.name}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>내용</th>
+                                            <td colspan="4">
+                                                <input name="description" type="text" class="csinp_txt"
+                                                    style="width:655px; height: 300px;" maxlength="200" th:value="${category.description}">
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                    <!-- 사용 여부 -->
+                                    <tbody>
+                                        <tr>
+                                            <th>사용 여부</th>
+                                            <td colspan="4">
+                                                <div class="csinp_select1" style="width:165px">
+                                                    <select name="active" th:field="${category.active}">
+                                                        <option value="true">사용</option>
+                                                        <option value="false">미사용</option>
+                                                    </select>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <div class="list_b_btn2 mt_30">
+                                <a href="/admin/category-list" class="btn_gr50" style="width:170px">취소</a>
+                                <button type="submit" class="btn_bg50" style="width:170px" id="check1_11">수정</button>
+                            </div>
+                            <!-- cont //-->
+                        </form>
                     </div>
 
-
-
-
                 </div>
+                <!-- // 카테고리 등록 -->
+
 
             </div>
         </div>

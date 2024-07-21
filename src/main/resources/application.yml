@@ -3,8 +3,7 @@ spring:
     suffix: .jsp
     prefix: classpath:/templates/
 
-
-# Gmail 설정
+  # Gmail 설정
   mail:
     host: smtp.gmail.com
     post: 587
@@ -30,6 +29,12 @@ spring:
 
 
 spring.jwt.secret: asdkfljsaldfjalsdkjhfksauehmcnasdkwptgiruslxzcwrsldwperoilcsdfmsjdnfsdfhskjfhwkejfskdcbqowijsdkdaja
+
+# files 폴더 지정
+file:
+  upload-dir: src/main/resources/static/files/
+
+
 
 
 # 로그 출력 코드
