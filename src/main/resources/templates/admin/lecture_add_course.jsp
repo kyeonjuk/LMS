@@ -22,9 +22,10 @@
 	<script type="text/javascript" src="https://www.etoos.com/common/js/prototype.js"></script>
 
 
+	<script type="text/javascript" src="/cache/home/main2011/js_rolling.js"></script>
 	<script language="javascript" src="https://www.etoos.com/common/js/jquery/jquery-1.8.3.min.js"
 		type="text/javascript"></script>
-	<script type="text/javascript">var $j = jQuery.noConflict(); </script>
+	<script type="text/javascript">var $j = jQuery.noConflict(); // jQuery noConflict </script>
 	<script language="javascript">
 
 	</script>
@@ -44,7 +45,6 @@
 
 		<div id="Sub840_conbody">
 			<div id="Sub840_conbW">
-
 
 				<!-- 좌측 네비바 start -->
 				<div id="Sub840_Left">
@@ -112,147 +112,170 @@
 				</div>
 				<!-- // 좌측 네비바 end -->
 
-				<style>
-					.cont_tit_type1 {
-						position: relative;
-						margin-top: 10px;
-					}
 
-					.tit {
-						padding-left: 3px;
-						font: bold 25px / 30px 'Malgun Gothic', '맑은고딕', sans-serif;
-						color: #333;
-						letter-spacing: -0.05em;
-					}
-				</style>
 
-				<!-- 강사 등록 -->
 				<div id="Sub840_con">
 
-					<div class="wrapcustomer">
 
-						<div class="cont_tit_type1 cont_tit_type1_1">
-							<strong class="tit">회원/강사 수정</strong>
+					<div id="divFLT_HSH_20161017" name="divFLT_HSH_20161017"
+						style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
+
+					</div>
+
+					<div id="divFLT_NHJ_20161017" name="divFLT_NHJ_20161017"
+						style="position: absolute; z-index: 1000; width: 0px; height: 0px;">
+
+					</div>
+
+					<script type="text/javascript" src="/common/js_2013/etoos_default_new.js"></script>
+					<script type="text/javascript" src="/common/js_2013/jquery.json-2.3.js"></script>
+					<script type="text/javascript" src="/common/js_2013/jquery.form.js"></script>
+					<script type="text/javascript" src="/common/js_2013/common_etoos.js"></script>
+
+
+
+					<!-- myroom 시작 -->
+					<div id="wrapmyroom">
+						<div class="wr_cont_f my_lectroom">
+
+
+
+							<!--// cont -->
+							<div class="cont_tit_type1 cont_tit_type1_1">
+								<strong class="tit">개별 강의 등록</strong>
+								<div style="font-size: 18px;">
+									<span style="font-weight: 500; color: #d73a3a;">1. 강의 패키지 선택</span>
+									<span>></span>
+									<span>2. 개별 강의 등록</span>
+								</div>
+
+							</div>
+
+							<!-- cont//-->
+
+							<!-- 수강중 강좌 TAB -->
+
+							<!-- 페이징 처리 -->
+
+							<div class="list_t_sort">
+								<form action="/admin/lecture-add" method="post" style="display: inline-block;">
+									<input type="text" name="keyword" placeholder="제목 검색"
+										style="width: 200px; height: 21px; padding: 0 5px; font-size: 12px; border: 1px solid #047f89;">
+									<button type="submit" style="
+                        background-color: #0c8b95;
+                        color: #ffffff;
+                        border: 1px solid #047f89;
+                        height: 21px;
+                        font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;
+                        padding: 0 10px;
+                        cursor: pointer;
+                    ">검색</button>
+								</form>
+
+								<span class="wr_sort_btn">
+									<a href="/admin/course-list?sort=createDate,asc&sortName=old"
+										th:classappend="${sortName == 'old'} ? 'btn_align on' : 'btn_align'">Old</a>
+									<a href="/admin/course-list?sort=createDate,desc&sortName=new"
+										th:classappend="${sortName == 'new1'} ? 'btn_align on' : 'btn_align'">New</a>
+									<a href="/admin/course-list?sort=name,asc&sortName=nameAsc"
+										th:classappend="${sortName == 'nameAsc'} ? 'btn_align on' : 'btn_align'">이름
+										오름차순</a>
+									<a href="/admin/course-list?sort=name,desc&sortName=nameDesc"
+										th:classappend="${sortName == 'nameDesc'} ? 'btn_align on' : 'btn_align'">이름
+										내림차순</a>
+								</span>
+							</div>
+
+							<ul class="myroom_list5 list5_type2">
+
+								<li th:each="course : ${courseList}" id="lectureStudyView_nor">
+
+									<div class="wr_listcont">
+										<div style="color: #212183; margin-bottom: 5px;">
+											<span>번호 : </span><span th:text="${course.id}"></span>
+										</div>
+										<div style="margin-bottom: 10px;">
+											<span style="font-size: 20px; color: #086d95; font-weight: 600;"
+												th:text="${course.title}"></span>
+										</div>
+
+										<span>강사 이름 : </span><span th:text="${course.name}"></span>
+										<br>
+										<span>별점 : </span><span th:text="${course.rating}"></span>
+										<br>
+										<span>가격 : </span><span th:text="${course.price}"></span>
+										<br>
+										<span>패키지 설명 : </span><span th:text="${course.description}"
+											style="word-wrap: break-word; /* 긴 단어가 영역을 벗어나면 줄바꿈 */word-break: break-all; /* 긴 단어를 적절히 줄바꿈 */"></span>
+										<br>
+										<span>사용 여부 : </span><span th:text="${course.active}"></span>
+										<br>
+
+										<div class="cont_info">
+											등록날짜 : <span class="mrf_num12 mrf_pb1"><span
+													th:text="${course.createDate}"></span></span>
+										</div>
+
+										<div class="cont_info">
+											수정날짜 : <span class="mrf_num12 mrf_pb1"><span
+													th:text="${course.updateDate}"></span></span>
+										</div>
+										<br>
+										<!-- 선택 버튼 -->
+
+										<span>
+											<a th:href="@{'/admin/lecture-add-pro/' + ${course.id}}" style="display: inline-block;
+                                            width: 100px;
+                                            background-color: #ef3d3d;
+                                            color: #ffffff;
+                                            text-align: center;
+                                            border: 1px solid #ef3d3d;
+                                            height: 21px;
+                                            font: normal 12px / 20px 'Malgun Gothic', '맑은고딕', sans-serif;">선택</a>
+										</span>
+										<!-- // 선택 버튼 -->
+
+									</div>
+
+								</li>
+
+							</ul>
+
+							<!-- 페이징 넘버 -->
+							<style>
+								.active {
+									font-weight: bold;
+									color: green;
+								}
+
+								.page {
+									font-size: 30px;
+									font-weight: 400;
+								}
+							</style>
+
+							<div class="lect_paging mt_20">
+								<span class="page">
+									<span th:each="pageNum : ${pageList}">
+										<a th:href="@{/admin/lecture-add(page=${pageNum-1}, sortName=${sortName}, sort=${sort})}"
+											th:text="${pageNum}"
+											th:class="${pageNum == courseList.getNumber + 1 ? 'active' : ''}"
+											style="padding: 10px;">
+										</a>
+									</span>
+								</span>
+							</div>
+							<!-- // 페이징 넘버 -->
+
+							<!-- cont//-->
+
 
 						</div>
 
-						<!--//cont -->
 
-						<form th:action="@{'/admin/member-update-pro/' + ${member.email}}" method="post" enctype="multipart/form-data">
-
-							<div class="wr_tbl_board">
-								<p class="list_t_desc">모든 항목 필수 입력</p>
-								<table width="100%" class="tbl cstbl_input_st1 mt_10">
-									<colgroup>
-										<col style="width:148px">
-										<col style="width:200px">
-										<col style="width:200px">
-									</colgroup>
-
-
-									<tbody>
-										<tr>
-											<th>이름</th>
-											<td colspan="4">
-												<input name="name" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.name}">
-											</td>
-										</tr>
-
-										<tr>
-											<th>이메일</th>
-											<td colspan="4">
-												<input name="email" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.email}">
-											</td>
-										</tr>
-										<tr>
-											<th>비밀번호</th>
-											<td colspan="4">
-												<input name="password" type="password" class="csinp_txt"
-													style="width:655px;" maxlength="200" th:value="${member.password}">
-											</td>
-										</tr>
-										<tr>
-											<th>핸드폰 번호</th>
-											<td colspan="4">
-												<input name="phone" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.phone}">
-											</td>
-										</tr>
-
-										<tr>
-											<th>생년월일</th>
-											<td colspan="4">
-												<input name="birth" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.birth}">
-											</td>
-										</tr>
-
-										<tr>
-											<th>가입 날짜</th>
-											<td colspan="4">
-												<input name="createDate" type="text" class="csinp_txt"
-													style="width:655px" maxlength="200" th:value="${member.createDate}">
-											</td>
-										</tr>
-
-										<tr>
-											<th>권한</th>
-											<td colspan="4">
-												<input name="role" type="text" class="csinp_txt" style="width:655px"
-													maxlength="200" th:value="${member.role}">
-											</td>
-										</tr>
-
-
-										<tr>
-											<th>현재 이미지</th>
-											<td colspan="4">
-												<img th:src="@{'/files/' + ${member.profile_image}}" alt="현재 이미지" style="height: 100px;">
-											</td>
-
-										</tr>
-										<tr>
-											<th>새 이미지 업로드</th>
-											<td colspan="4">
-												<input type="file" name="newFile" style="height: 25px;" />
-											</td>
-
-										</tr>
-
-									</tbody>
-
-									<!-- 사용 여부 -->
-									<tbody>
-										<tr>
-											<th>활성화 여부</th>
-											<td colspan="4">
-												<div class="csinp_select1" style="width:165px">
-													<select name="active" th:field="${member.active}">
-														<option value="1">활성화</option>
-														<option value="0">비활성화</option>
-													</select>
-												</div>
-
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-
-
-							<div class="list_b_btn2 mt_30">
-								<a href="/admin/category-add" class="btn_gr50" style="width:170px">취소</a>
-								<button type="submit" class="btn_bg50" style="width:170px" id="check1_11">등록</button>
-							</div>
-							<!-- cont //-->
-						</form>
 					</div>
 
 				</div>
-				<!-- // 카테고리 등록 -->
-
 
 			</div>
 		</div>

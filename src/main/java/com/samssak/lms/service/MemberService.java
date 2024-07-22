@@ -19,4 +19,10 @@ public interface MemberService {
 
   // 회원/강사 삭제
   public boolean deleteByEmail(String email);
+
+  /**
+   * 강사별, 회원별 찾기
+   */
+  public MemberInput findByEmailWhereRole(String email, String role);
+
 }

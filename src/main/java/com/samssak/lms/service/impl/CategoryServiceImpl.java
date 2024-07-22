@@ -5,6 +5,7 @@ import com.samssak.lms.model.CategoryInput;
 import com.samssak.lms.repository.CategoryRepository;
 import com.samssak.lms.service.CategoryService;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -72,5 +73,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     return true;
+  }
+
+  @Override
+  public List<Category> findAll() {
+    return categoryRepository.findAll();
   }
 }

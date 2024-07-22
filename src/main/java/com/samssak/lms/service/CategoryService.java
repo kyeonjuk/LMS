@@ -2,6 +2,7 @@ package com.samssak.lms.service;
 
 import com.samssak.lms.entity.Category;
 import com.samssak.lms.model.CategoryInput;
+import java.util.List;
 
 public interface CategoryService {
 
@@ -16,5 +17,6 @@ public interface CategoryService {
 
   public boolean categoryDelete(int id);
 
+  public List<Category> findAll();
 
 }
